@@ -118,6 +118,7 @@ body {
   flex-direction: row;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  align-items: flex-start; /* عشان الـ error مايتزاحمش مع الزرار */
 }
 
 .tasks input {
@@ -156,7 +157,14 @@ body {
 .error {
   color: #f44336;
   font-size: 0.9rem;
-  margin-top: -0.3rem;
+  margin-top: 4px;
+}
+
+/* Input + Error container */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* Task list */
@@ -164,7 +172,6 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-  
 }
 
 .tasks li {
@@ -173,24 +180,20 @@ body {
   justify-content: space-between;
   background: #0d1b2a;
   margin-bottom: 3px;
-
 }
 
 .task-left {
   display: flex;
   align-items: center;
   gap: 0.6rem; 
-
 }
 
- 
 .tasks li span {
   margin: 0;
   font-size: 1rem;
   flex: none;  
 }
 
- 
 .tasks li.completed span {
   text-decoration: line-through;
   opacity: 0.6;
