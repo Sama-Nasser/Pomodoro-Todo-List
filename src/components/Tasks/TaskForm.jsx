@@ -30,7 +30,7 @@ function TaskForm({ addTask }) {
           value={input}
           onChange={(e) => {
             setInput(e.target.value);
-            if (error) setError("");  
+            if (error) setError("");
           }}
         />
         {error && <p className="error">{error}</p>}
