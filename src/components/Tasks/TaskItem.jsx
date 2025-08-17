@@ -1,4 +1,4 @@
-function TaskItem({ task, toggleTask, deleteTask }) {
+function TaskItem({ task, toggleTask, deleteTask, editTask }) {
   return (
     <li className={task.completed ? "completed" : ""}>
       <div className="task-left">
@@ -7,7 +7,26 @@ function TaskItem({ task, toggleTask, deleteTask }) {
           checked={task.completed}
           onChange={() => toggleTask(task.id)}
         />
-        <span>{task.text}</span>
+        <span
+          contentEditable
+          suppressContentEditableWarning={true}
+          onBlur={(e) => {
+            const newText = e.target.textContent.trim();
+            if (newText && newText !== task.text) {
+              editTask(task.id, newText);
+            } else {
+              e.target.textContent = task.text;  
+            }
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              e.target.blur();  
+            }
+          }}
+        >
+          {task.text}
+        </span>
       </div>
       <button onClick={() => deleteTask(task.id)}>🗑</button>
     </li>
