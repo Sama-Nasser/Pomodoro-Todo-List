@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-function useTimer(initialMinutes = 2) {
+function useTimer(initialMinutes = 25) {
   const [totalSeconds, setTotalSeconds] = useState(initialMinutes * 60);  
   const [isActive, setIsActive] = useState(false);
   const [onBreak, setOnBreak] = useState(false);
@@ -64,7 +64,7 @@ function useTimer(initialMinutes = 2) {
     clearInterval(timerRef.current);
     setIsFinished(false);
     setOnBreak(true);
-    setTotalSeconds(1 * 60);  
+    setTotalSeconds(5 * 60);  
     setIsActive(true);
   };
 
@@ -82,4 +82,5 @@ function useTimer(initialMinutes = 2) {
 }
 
 export default useTimer;
+
 
