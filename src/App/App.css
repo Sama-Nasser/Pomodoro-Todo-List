@@ -118,7 +118,7 @@ body {
   flex-direction: row;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  align-items: flex-start; /* عشان الـ error مايتزاحمش مع الزرار */
+  align-items: flex-start;  
 }
 
 .tasks input {
@@ -235,3 +235,4 @@ body {
     align-self: stretch;
   }
 }
+
