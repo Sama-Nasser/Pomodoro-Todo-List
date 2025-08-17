@@ -19,7 +19,7 @@ function useTimer(initialMinutes = 2) {
           return prev - 1;
         }
 
-        // وصلنا للصفر
+         
         clearInterval(timerRef.current);
         setIsActive(false);
 
@@ -82,3 +82,4 @@ function useTimer(initialMinutes = 2) {
 }
 
 export default useTimer;
+
