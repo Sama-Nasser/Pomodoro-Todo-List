@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 function TaskForm({ addTask }) {
   const [input, setInput] = useState("");
@@ -23,17 +23,19 @@ function TaskForm({ addTask }) {
 
   return (
     <form onSubmit={handleSubmit} className="task-form">
-      <input
-        type="text"
-        placeholder="Add a new task..."
-        value={input}
-        onChange={(e) => {
-          setInput(e.target.value);
-          if (error) setError("");  
-        }}
-      />
+      <div className="input-container">
+        <input
+          type="text"
+          placeholder="Add a new task..."
+          value={input}
+          onChange={(e) => {
+            setInput(e.target.value);
+            if (error) setError("");  
+          }}
+        />
+        {error && <p className="error">{error}</p>}
+      </div>
       <button type="submit">Add</button>
-      {error && <p className="error">{error}</p>}
     </form>
   );
 }
