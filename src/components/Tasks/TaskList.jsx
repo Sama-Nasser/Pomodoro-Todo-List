@@ -21,6 +21,12 @@ function TaskList() {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  const editTask = (id, newText) => {
+    setTasks(
+      tasks.map((task) => (task.id === id ? { ...task, text: newText } : task))
+    );
+  };
+
   return (
     <div className="tasks">
       <h2>My Tasks</h2>
@@ -32,6 +38,7 @@ function TaskList() {
             task={task}
             toggleTask={toggleTask}
             deleteTask={deleteTask}
+            editTask={editTask}
           />
         ))}
       </ul>
